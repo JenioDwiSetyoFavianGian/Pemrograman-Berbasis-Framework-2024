@@ -12,3 +12,15 @@ Dengan menambahkan kode pada file page.tsx yang berfungsi untuk memanggil kompon
 ## Output Soal 3
 ![Screenshoot](docs/soal3.png) 
 Memastikan bahwa semua elemen JSX berada dalam satu elemen induk, dalam hal ini 'div', mengganti penggunaan class dengan className, mengganti br menjadi br /, penutup tag yang benar dalam JSX, dan merapikan penggunaan tag b dan i.
+
+## Soal 4
+Terjadi error di kode bagian
+```tsx
+<h1>{person}'s Todos</h1>
+```
+karena penggunaan objek dan properti nya tidak lengkap.
+
+Kode yang benar:
+```tsx
+<h1>{person.name}'s Todos</h1>
+```
