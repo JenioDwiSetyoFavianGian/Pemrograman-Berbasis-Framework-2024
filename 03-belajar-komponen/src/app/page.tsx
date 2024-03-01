@@ -2,6 +2,8 @@ import Image from "next/image";
 import Profile from "./components/profile";
 import { Gallery } from "./components/gallery";
 import TodoList from "./components/todolist";
+import MyGallery from "./components/mygallery";
+import MyAvatar from "./components/myprofilev2";
 
 // export default function Home() {
 //   return (
@@ -41,6 +43,10 @@ export default function Home() {
       <Gallery />
       <hr />
       <TodoList />
+      <hr />
+      <MyGallery />
+      <hr />
+      <MyAvatar />
     </section>
   );
 }

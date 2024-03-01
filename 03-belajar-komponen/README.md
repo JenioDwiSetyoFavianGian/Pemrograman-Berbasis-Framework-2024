@@ -40,3 +40,6 @@ memastikan bahwa tag tersebut dievaluasi sebagai bagian dari string yang sesuai 
   alt={person.name}
 />
 ```
+## Output Soal 7,8,9
+![Screenshoot](docs/soal7,8,9.png) 
+kita tambahkan tiga foto ilmuwan di sudut kiri. Setiap foto dilengkapi dengan biodata mereka. Jadi, selain bikin tampilannya lebih menarik, juga memberikan informasi penting tentang para ilmuwan tersebut.
