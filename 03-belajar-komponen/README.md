@@ -24,3 +24,6 @@ Kode yang benar:
 ```tsx
 <h1>{person.name}'s Todos</h1>
 ```
+## Output Soal 5
+![Screenshoot](docs/soal5.png) 
+Dalam kode yang telah diperbaiki, URL gambar sekarang dibuat secara dinamis menggunakan properti imageId dan imageSize dari objek person. Kemudian, URL ini digunakan dalam elemen 'img'. Sekarang, kode tersebut telah benar dan akan menghasilkan URL gambar yang sesuai dengan data yang ada dalam objek person.
