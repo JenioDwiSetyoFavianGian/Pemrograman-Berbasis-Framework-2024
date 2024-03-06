@@ -146,3 +146,85 @@ export default function Home() {
 Coba cek di browser dan amati apa yang terjadi?
 
 Jelaskan mengapa bisa seperti itu?
+
+# Praktikum 3
+## Langkah 1 - Propagation
+Sebagai contoh coba kita modifikasi file button.tsx seperti berikut
+```
+export function Tombol_2({ isiPesan, namaTombol}) {
+    return (
+        <button
+            className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded"
+            onClick={() => alert(isiPesan)}>
+            {namaTombol}
+        </button>
+    );
+}
+export function Tombol_3({isiPesan, namaTombol}){
+    return (
+        <button
+            className="bg-green-400 hover:bg-green-700 text-white p-2 rounded m-2"
+            onClick={() => {
+                alert(isiPesan)
+            }
+            }>
+            {namaTombol}
+        </button>
+
+    );
+}
+
+export default function Tombol_1() {
+```
+Kemudian kita modifikasi fiile `page.tsx`
+```
+"use client";
+import Tombol_1, { Tombol_2, Tombol_3 } from "@/components/button";
+export default function Home() {
+  return (
+    <>
+      <div className="container mx-auto">
+        <h2>Kuis Kota</h2>
+        <Tombol_1 />
+        <hr></hr>
+        <Tombol_2 isiPesan="Ini Pesanku" namaTombol="Pesan" />
+      </div>
+      <br></br>
+      <div className="bg-red-300" onClick={() => alert('Parent Element: Div')}>
+        <Tombol_3 isiPesan="Child Element: Tombol-1" namaTombol="Tombol-1" />
+        <Tombol_3 isiPesan="Child Element: Tombol-2" namaTombol="Tombol-2" />
+      </div>
+    </>
+  );
+}
+```
+Kemudian kita jalankan di browser, coba klik `Tombol-1`, dan amati apa yang terjadi...!!!
+
+Kita akan disuguhkan dengan pesan/alert sebanyak 2 kali, yaitu Pesan `"Child Element : Tombol-1"` dan pesan `"Parent Element : Div"`.
+### Output Praktikum 3 Langkah 1
+![Screenshoot](docs/p3l1.1.png) 
+
+![Screenshoot](docs/p3l1.2.png) 
+
+Hal ini terjadi karena baik untuk element `div` maupun `button` memiliki event yang sama yaitu onClick, sehingga ketika button diklik maka event handler untuk onClick pada button akan dijalankan. Kemudian baru event handler dari parent (element div) akan dijalankan.
+
+Hal ini disebut dengan propagation, dan biasa terjadi pada elemen child dan parent yang memiliki event yang sama.
+
+## Langkah 2 - Stop Propagation
+```
+export function Tombol_3({isiPesan, namaTombol}) {
+    return (
+        <button
+            className="bg-green-400 hover:bg-green-700 text-white p-2 rounded m-2"
+            onClick={(e) => {
+                e.stopPropagation();
+                alert(isiPesan)
+            }
+            }>
+            {namaTombol}
+        </button>
+    );
+}
+```
+### Output Praktikum 3 Langkah 2
+![Screenshoot](docs/p3l2.png) 
