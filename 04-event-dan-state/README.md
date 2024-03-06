@@ -103,3 +103,46 @@ return (
 ### Output Praktikum 1 Langkah 2.2
 ![Screenshoot](docs/p1l2.2.png) 
 
+# Praktikum 2
+Kita buat fungsi baru pada component `button.tsx`
+```
+export function Tombol_2({ isiPesan, namaTombol }) {
+    return (
+        <button
+            className="bg-blue-500 hover:bg-blue-700 ☐ text-white p-2 rounded"
+            onClick={() => alert(isiPesan)}>
+            {namaTombol}
+        </button>
+
+    );
+}
+```
+Pada component, hanya ada 1 fungsi yang memiliki `default` !
+
+Parameter `isiPesan` dan `namaTombol` bisa diisi oleh layout yang ada di `page.tsx` nanti, sehingga komponen `Tombol_2` bernilai dinamis.
+
+Sekarang kita modifikasi file `page.tsx` seperti berikut
+```
+"use client";
+import Tombol_1, { Tombol_2 } from "../components/button";
+export default function Home() {
+  return (
+    <>
+      <div className="container mx-auto">
+        <h2>Kuis Kota</h2>
+        <Tombol_1 />
+        <hr></hr>
+        <Tombol_2 isiPesan="Ini Pesanku" namaTombol="Pesan" />
+      </div>
+    </>
+  );
+}
+```
+### Output Praktikum 2
+![Screenshoot](docs/p2.1.png) 
+
+![Screenshoot](docs/p2.2.png) 
+
+Coba cek di browser dan amati apa yang terjadi?
+
+Jelaskan mengapa bisa seperti itu?
