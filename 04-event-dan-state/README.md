@@ -380,3 +380,179 @@ Jalankan pada browser dan amati apa yang terjadi.
 ![Screenshoot](docs/p4l2.4.png) 
 ![Screenshoot](docs/p4l2.5.png) 
 Yang terjadi yaitu tombol bisa dipencet dan menuju slide article selanjutnya.
+
+# Praktikum 5
+## Langkah 1
+Kita buat komponen baru `src/components/form.tsx`
+```
+import { useState } from "react";
+
+export default function form() {
+    const [jawaban, setJawaban] = useState('');
+    const [error, setError] = useState(null);
+    const [status, setstatus] = useState('typing');
+
+    if (status === 'success') {
+        return <h1>Yay... Jawaban Benar!</h1>
+    }
+
+    async function handleSubmit(e: { preventDefault: () => void; }) {
+        e.preventDefault();
+        setStatus('submitting');
+        try {
+            await submitForm(jawaban);
+            setStatus('success');
+        } catch (err) {
+            setstatus('typing');
+            setError(err);
+        }
+    }
+
+    function handleTextareaChange(e) {
+        setJawaban(e.target.value);
+    }
+
+    return (
+        <>
+            <div className="w-full max-w-xs">
+                <h2>Tebak Nama Hewan</h2>
+                <p>Hewan apa yang ditakuti oleh doraemon?</p>
+                <form
+                    className="shadow-md rounded px-8 pt-6 pb-8 mb-4 text-black border-gray-400"
+                    onSubmit={handleSubmit}>
+                    <textarea
+                        value={jawaban}
+                        onChange={handleTextareaChange}
+                        disabled={status === 'submitting'}
+                    />
+                    <br />
+                    <button
+                        className="bg-blue-400 p-2 m-2 rounded text-smtext-white"
+                        disabled={jawaban.length === 0 || status === 'submitting'}>
+                        Submit
+                    </button>
+                    {error !== null && <p className="Error text-red-500 text-sm">{error.message}</p>}
+                </form>
+            </div >
+        </>
+    );
+}
+function submitForm(jawaban) {
+    return new Promise<void>((resolve, reject) => {
+        setTimeout(() => {
+            let shouldError = jawaban.toLowerCase() !== 'tikus'
+            if (shouldError) {
+                reject(new Error('Tebakan yang bagus tetapi jawaban salah. Silahkan coba lagi!'));
+            } else {
+            }
+            resolve();
+        }, 500); // set timeout selama 0,5 detik
+    });
+}
+```
+Kemudian kita tambahkan kode pada file `page.tsx`
+```
+"use client";
+import Tombol_1, { Tombol_2, Tombol_3 } from "../components/button"; 
+import Gallery from "../components/gallery";
+import Form from "../components/form";
+
+export default function Home() {
+  return (
+  <>
+    <div className="container mx-auto">
+      <h2>Kuis Kota</h2>
+      <Tombol_1 />
+      <hr></hr>
+      <Tombol_2 isiPesan="Ini Pesanku" namaTombol="Pesan" />
+    </div>
+    <br></br>
+    <div className="bg-red-300" onClick={() => alert('Parent Element: Div')}>
+      <Tombol_3 isiPesan="Child Element: Tombol-1" namaTombol="Tombol-1" />
+      <Tombol_3 isiPesan="Child Element: Tombol-2" namaTombol="Tombol-2" />
+    </div>
+    <br></br>
+    <Gallery />
+    <br></br>
+    <Form/>
+  </>
+);
+}
+```
+Jalankan pada browser, amati dan laporkan apa yang terjadi..!!
+### Output Praktikum 5 Langkah 1
+![Screenshoot](docs/p5l1.png) 
+
+## Langkah 2
+Kita tambahkan kode berikut pada `src/component/form.tsx`
+```
+export function Form_2() {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [fullName, setFullName] = useState('');
+
+    function handleFirstNameChange(e) {
+        setFirstName(e.target.value);
+        setFullName(e.target.value + ' ' + lastName);
+    }
+
+    function handleLastNameChange(e) {
+        setLastName(e.target.value);
+        setFullName(firstName + ' ' + e.target.value);
+    }
+
+    return (
+        <>
+            <h2>Silahkan isi nama lengkap anda</h2>
+            <label className="block w-full m-2">
+                Nama depan:
+                <input className="text-sm value={firstName} text-black ml-2 rounded"
+                    value={firstName}
+                    onChange={handleFirstNameChange}
+                />
+            </label>
+
+            <label className="block w-full m-2">
+                Nama belakang:
+                <input className="text-sm value={lastName} text-black ml-2 rounded"
+                    value={lastName}
+                    onChange={handleLastNameChange}
+                />
+            </label>
+            <p>Nama lengkap Anda adalah : <b className="text-blue-600">{fullName}</b></p>
+        </>
+    );
+}
+```
+Kemudian tambahkan ke `page.tsx`
+```
+    <br></br>
+    <Gallery />
+    <br></br>
+    <Form/>
+    <br></br>
+    <Form_2/>
+  </>
+);
+}
+```
+Coba perhatikan dan implementasikan kode berikut pada `src/component/form.tsx`
+```
+export function Form_2() {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [fullName, setFullName] = useState('');
+
+    function handleFirstNameChange(e) {
+        setFirstName(e.target.value);
+        setFullName(e.target.value + ' ' + lastName);
+    }
+
+    function handleLastNameChange(e) {
+        setLastName(e.target.value);
+        setFullName(firstName + ' ' + e.target.value);
+    }
+```
+Jalankan pada browser dan amati apa yang terjadi.
+### Output Praktikum 5 Langkah 2
+![Screenshoot](docs/p5l2.png)
