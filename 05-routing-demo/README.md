@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Nama    : Jenio Dwi Setyo Favian Gian
 
-## Getting Started
+NIM     : 2141720212
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Praktikum 1: Membuat routing sederhana
+Pada praktikum ini, Anda akan membuat 3 halaman yang di-handle oleh router, yaitu halaman `home`,, halaman `about`, dan halaman `profile`. Silakan lakukan langkah-langkah praktikum berikut ini.
+## Langkah 1: Menambah file page.tsx di folder app
 ```
+export default function Home() {
+    return <h1>Welcome to Home</h1> ;
+}
+```
+### Output Praktikum 1 Langkah 1
+![Screenshoot](docs/home.png) 
+## Langkah 2: Menambah file page.tsx di folder app/about
+```
+export default function About() {
+    return <h1>Welcome to About</h1> ;
+  }
+```
+### Output Praktikum 1 Langkah 2
+![Screenshoot](docs/about.png) 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Langkah 3: Menambah file page.tsx di folder /profile yang menampilkan isi biodata anda
+```
+export default function Profile() {
+    return (
+        <div>
+            <h1>Biodata</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td>Jenio Dwi Setyo Favian Gian</td>
+                    </tr>
+                    <tr>
+                        <td>NIM</td>
+                        <td>:</td>
+                        <td>2141720212</td>
+                    </tr>
+                    <tr>
+                        <td>Kelas</td>
+                        <td>:</td>
+                        <td>TI - 3C</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    )
+}
+```
+### Output Praktikum 1 Langkah 3
+![Screenshoot](docs/biodata.png) 
