@@ -53,3 +53,33 @@ export default function Profile() {
 ```
 ### Output Praktikum 1 Langkah 3
 ![Screenshoot](docs/biodata.png) 
+
+# Praktikum 2: Membuat routing bersarang (Nested Routing)
+## Langkah 1: Menambah file page.tsx di folder app/blogs, app/blogs/first dan app/blogs/second
+blogs
+```
+export default function Blog() {
+    return (
+        <h1>Blog</h1>
+    );
+}
+```
+![Screenshoot](docs/blog.png) 
+blogs/first
+```
+export default function FirstBlog() {
+    return (
+        <h1>First Blog</h1>
+    );
+}
+```
+![Screenshoot](docs/first.png) 
+blogs/second
+```
+export default function SecondBlog() {
+    return (
+        <h1>Second Blog</h1>
+    );
+}
+```
+![Screenshoot](docs/second.png) 
