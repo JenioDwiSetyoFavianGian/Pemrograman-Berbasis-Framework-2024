@@ -146,3 +146,51 @@ type Props = {
   
 ```
  ![Screenshoot](docs/reviews.png) 
+ # Praktikum 4: Navigasi dengan Link Component
+ ## Langkah 1: Menambahkan penggunaan Link komponen untuk mengakses halaman /profile dan /about
+ ```
+import Link from "next/link";
+
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to Home</h1>
+      <Link href='/profile'>Profile</Link><br />
+      <Link href='/about'>About</Link>
+    </div>
+  )
+}
+ ```
+![Screenshoot](docs/4.1.png) 
+## Langkah 2: Menambahkan penggunaan Link komponen untuk mengakses halaman lainnya
+```
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to Home</h1>
+      <ul>
+        <li>
+          <Link href='/profile'><h3>Profile</h3></Link>
+        </li>
+        <li>
+          <Link href='/about'><h3>About</h3></Link>
+        </li>
+        <li>
+          <Link href='/blogs'><h3>Blogs</h3></Link>
+        </li>
+        <li>
+          <Link href='/products'><h3>Products</h3></Link>
+        </li>
+      </ul>
+    </div>
+  )
+}
+```
+![Screenshoot](docs/4.1.png) 
+![Screenshoot](docs/4.2.png) 
+![Screenshoot](docs/4.3.png) 
+![Screenshoot](docs/4.4.png)
+![Screenshoot](docs/4.5.png)  
