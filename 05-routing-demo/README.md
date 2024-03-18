@@ -83,3 +83,66 @@ export default function SecondBlog() {
 }
 ```
 ![Screenshoot](docs/second.png) 
+# Praktikum 3: Membuat routing dinamis (Dynamic Routing)
+## Langkah 1: Menambah file page.tsx di folder app/products
+```
+export default function ProductList() {
+  return (
+        <div>
+          <h1>Product List</h1>
+          <h2>Product 1</h2>
+          <h2>Product 2</h2>
+          <h2>Product 3</h2>
+        </div>
+  );
+}
+```
+![Screenshoot](docs/products.png) 
+## Langkah 2: Menambah file page.tsx di folder app/products/[productId]
+```
+type Props = {
+    params: {
+          productId: string
+    }
+  }
+  
+  export default function ProductDetails({ params }: Props) {
+    return (
+          <h1>Details about product {params.productId}</h1>
+    )
+  }
+  ```
+  ![Screenshoot](docs/details1.png) 
+## Langkah 3: Memperbaiki implementasi Praktikum 2 menggunakan Dynamic Routes
+```
+type Props = {
+    params: {
+          blogId: string
+    }
+  }
+  
+  export default function BlogDetails({ params }: Props) {
+    return (
+          <h1>{params.blogId} Blog</h1>
+    )
+  }
+  
+```
+  ![Screenshoot](docs/thirdd.png) 
+## Langkah 4: Membuat halaman dengan routing /products/[productId]/reviews/[reviewId]
+```
+type Props = {
+    params: {
+        productId: String,
+        reviewId: String
+    }
+  }
+  
+  export default function ReviewDetails({ params }: Props) {
+    return (
+          <h1>Details About Product {params.productId} and Review {params.reviewId}</h1>
+    )
+  }
+  
+```
+ ![Screenshoot](docs/reviews.png) 
