@@ -317,6 +317,18 @@ Kemudian kita jalankan di browser dengan url `localhost:3000/counter`, dan amati
 ### Output Praktikum 3
 ![Screenshoot](docs/p3.1.png) 
 ![Screenshoot](docs/p3.2.png) 
+# Tugas (Pertanyaan Praktikum)
+Berdasarkan pada praktikum sebelumnya yang telah dilakukan, beberapa pertanyaan terkait praktikum perlu diselesaikan yaitu sebagai berikut.
+
+1. Apa kegunaan dari kode ini `import { useEffect } from "react";` Pada file `pages/_app.tsx`? jelaskan
+2. Jika pada file `pages/_app.tsx` kita tidak menggunakan `useEffect` (menghapus baris 3, dan baris 9-11, apa yang akan terjadi?
+3. Mengapa di react/nextjs penulisan tag html untuk `class`, harus diganti menjadi `className` ?
+4. Apakah store pada nextjs bisa menyimpan banyak redux reducer?
+5. Jelaskan kegunaan dari file `store.js`!
+6. Pada file `pages/login.tsx`, apa maksud dari kode ini ?
+`const { isLogin } = useSelector((state) => state.auth);`
+7. Pada file pages/counter.tsx, apa maksud dari kode ini?
+`const {totalCounter} = useSelector((state) => state.counter);`
 
 
 
